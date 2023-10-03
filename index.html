@@ -37,6 +37,7 @@
 
     <script>
         let slideIndex = 0;
+        let startX = 0;
         const slides = document.querySelectorAll(".slide");
 
         function showSlide(n) {
@@ -67,6 +68,20 @@
                 changeSlide(-1); // Clique na metade esquerda do slide para retroceder
             } else {
                 changeSlide(1); // Clique na metade direita do slide para avançar
+            }
+        });
+
+        // Eventos de toque para suportar deslizar o dedo
+        document.querySelector(".slider").addEventListener("touchstart", function (e) {
+            startX = e.touches[0].clientX;
+        });
+
+        document.querySelector(".slider").addEventListener("touchend", function (e) {
+            let endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) {
+                changeSlide(1); // Deslize da direita para a esquerda para avançar
+            } else if (endX - startX > 50) {
+                changeSlide(-1); // Deslize da esquerda para a direita para retroceder
             }
         });
     </script>
