@@ -58,7 +58,7 @@
         Por favor, gire seu dispositivo para o modo paisagem para uma melhor experiência.
     </div>
 
-      <script>
+     <script>
         let slideIndex = 0;
         let startX = 0;
         const slides = document.querySelectorAll(".slide");
@@ -106,9 +106,9 @@
             } else if (endX - startX > 50) {
                 changeSlide(-1); // Deslize da esquerda para a direita para retroceder
             }
-        }
+        });
 
-        // Verifica a orientação do dispositivo e exibe a mensagem de alerta
+          // Verifica a orientação do dispositivo e exibe a mensagem de alerta
         function checkOrientation() {
             if (window.innerWidth < window.innerHeight) {
                 // Dispositivo no modo retrato
