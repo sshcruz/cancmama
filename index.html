@@ -109,6 +109,21 @@
                 changeSlide(-1); // Deslize da esquerda para a direita para retroceder
             }
         });
+        // Verificar a orientação do dispositivo
+        window.addEventListener("orientationchange", checkOrientation);
+
+        function checkOrientation() {
+            const rotateAlert = document.getElementById("rotateAlert");
+            if (window.orientation === 90 || window.orientation === -90) {
+                // Paisagem
+                rotateAlert.style.display = "none";
+            } else {
+                // Retrato
+                rotateAlert.style.display = "block";
+            }
+        }
+
+        checkOrientation();
     </script>
 </body>
 </html>
